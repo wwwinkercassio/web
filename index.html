@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cássio Winkler</title>
     <meta name="description" content="Cássio Winkler">
-	<meta name="keywords" content="Cássio Winkler">
-	<meta name="robots" content="index, follow">
+    <meta name="keywords" content="Cássio Winkler">
+    <meta name="robots" content="index, follow">
     <meta property="og:title" content="Cássio Winkler">
     <meta property="og:description" content="Entre em contato com Cássio Winkler!">
     <meta property="og:image" content="https://www.broadcom.com/media/blt4ac44e0e6c6d8341/blt82fda611276954d1/602cdc60cb67827268e07da3/ESD_Landing_370x175_0.jpg">
@@ -110,6 +110,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gnl1vc1fD2JH6gBdK1oZoFBktpL92HszqsdjGf79lH2brfntch9TRbdDz2iVtfK5" crossorigin="anonymous"></script>
 
     <script>
+        // Desabilitar F12, Ctrl+I e funções de desenvolvedor
+        document.addEventListener("keydown", function (e) {
+            // F12 e Ctrl+Shift+I (DevTools)
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
+                e.preventDefault();
+            }
+
+            // Ctrl+U (Ver código fonte)
+            if (e.ctrlKey && e.keyCode === 85) {
+                e.preventDefault();
+            }
+
+            // Ctrl+I (Inspecionar)
+            if (e.ctrlKey && e.keyCode === 73) {
+                e.preventDefault();
+            }
+        });
+
         // Número de WhatsApp oculto (armazenado em uma variável)
         const whatsappNumber = "5542999835497";
 
