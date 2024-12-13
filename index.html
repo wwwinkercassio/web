@@ -12,7 +12,6 @@
     <meta property="og:image" content="https://www.broadcom.com/media/blt4ac44e0e6c6d8341/blt82fda611276954d1/602cdc60cb67827268e07da3/ESD_Landing_370x175_0.jpg">
     <meta property="og:url" content="wr.eti.br">
 
-    <!-- Carregar CSS do Bootstrap de forma otimizada -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0G8zNu0T4jCk4/JfXp18CV20Wxh2gDg3sS8tGe4I7zjGQyyT" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
@@ -110,28 +109,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gnl1vc1fD2JH6gBdK1oZoFBktpL92HszqsdjGf79lH2brfntch9TRbdDz2iVtfK5" crossorigin="anonymous"></script>
 
     <script>
-        // Desabilitar F12, Ctrl+I e funções de desenvolvedor
-        document.addEventListener("keydown", function (e) {
-            // F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+U (Outros atalhos de desenvolvedor)
-            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.keyCode === 85) || (e.ctrlKey && e.shiftKey && e.keyCode === 85)) {
-                e.preventDefault();
-            }
-        });
-
-        // Bloquear o botão direito (context menu)
-        document.addEventListener("contextmenu", function(e) {
-            e.preventDefault(); // Impede o menu de contexto
-        });
-
-        // Detectar ferramentas de desenvolvedor
-        var devtools = /./;
-        devtools.toString = function () {
-            alert("Ferramentas de desenvolvedor detectadas.");
-        };
-        console.log(devtools);
-
-        // Número de WhatsApp oculto (armazenado em uma variável)
-        const whatsappNumber = "5542999835497";
+        const whatsappNumber = "&#53;&#53;&#52;&#50;&#57;&#57;&#56;&#51;&#53;&#52;&#57;&#55;";
+        const decodedNumber = (new DOMParser()).parseFromString(whatsappNumber, "text/html").body.textContent;
 
         document.getElementById("contact-form").addEventListener("submit", function(e) {
             e.preventDefault();
@@ -143,8 +122,8 @@
             var assunto = document.getElementById("assunto").value;
             var mensagem = document.getElementById("mensagem").value;
 
-            // Formatar a URL do WhatsApp com markdown para negrito nas labels
-            var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" +
+            // Formatar a URL do WhatsApp
+            var whatsappUrl = "https://wa.me/" + decodedNumber + "?text=" +
                 "*Nome:* " + nome + "%0A" +
                 "*E-mail:* " + email + "%0A" +
                 "*Telefone:* " + telefone + "%0A" +
