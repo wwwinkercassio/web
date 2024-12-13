@@ -112,21 +112,23 @@
     <script>
         // Desabilitar F12, Ctrl+I e funções de desenvolvedor
         document.addEventListener("keydown", function (e) {
-            // F12 e Ctrl+Shift+I (DevTools)
-            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) {
-                e.preventDefault();
-            }
-
-            // Ctrl+U (Ver código fonte)
-            if (e.ctrlKey && e.keyCode === 85) {
-                e.preventDefault();
-            }
-
-            // Ctrl+I (Inspecionar)
-            if (e.ctrlKey && e.keyCode === 73) {
+            // F12, Ctrl+Shift+I, Ctrl+U, Ctrl+Shift+U (Outros atalhos de desenvolvedor)
+            if (e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.keyCode === 85) || (e.ctrlKey && e.shiftKey && e.keyCode === 85)) {
                 e.preventDefault();
             }
         });
+
+        // Bloquear o botão direito (context menu)
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault(); // Impede o menu de contexto
+        });
+
+        // Detectar ferramentas de desenvolvedor
+        var devtools = /./;
+        devtools.toString = function () {
+            alert("Ferramentas de desenvolvedor detectadas.");
+        };
+        console.log(devtools);
 
         // Número de WhatsApp oculto (armazenado em uma variável)
         const whatsappNumber = "5542999835497";
