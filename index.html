@@ -5,18 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cássio Winkler</title>
     <meta name="description" content="Cássio Winkler">
-    <meta name="keywords" content="Cássio Winkler">
-    <meta name="author" content="Cássio Winkler">
-    <meta name="robots" content="index, follow">
+	<meta name="keywords" content="Cássio Winkler">
+	<meta name="robots" content="index, follow">
     <meta property="og:title" content="Cássio Winkler">
-    <meta property="og:description" content="Cássio Winkler">
-    <meta property="og:url" content="https://www.linkedin.com/in/cassio-winkler">
-    <meta property="og:type" content="website">
+    <meta property="og:description" content="Entre em contato com Cássio Winkler!">
+    <meta property="og:image" content="https://www.broadcom.com/media/blt4ac44e0e6c6d8341/blt82fda611276954d1/602cdc60cb67827268e07da3/ESD_Landing_370x175_0.jpg">
+    <meta property="og:url" content="wr.eti.br">
+
+    <!-- Carregar CSS do Bootstrap de forma otimizada -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-pzjw8f+ua7Kw1TIq0G8zNu0T4jCk4/JfXp18CV20Wxh2gDg3sS8tGe4I7zjGQyyT" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            margin-bottom: 5px;
+            display: block;
+        }
+        .form-group input, .form-group textarea {
+            border-radius: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: none;
+        }
+        .btn-custom {
+            background-color: #4CAF50;
+            color: white;
+            width: 100%;
+            border-radius: 10px;
+            padding: 15px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .btn-custom:hover {
+            background-color: #45a049;
+        }
+
+        /* Ajustes responsivos */
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="form-container">
+        <h2 class="form-title">Entre em Contato</h2>
+        <form id="contact-form">
+            <div class="form-group">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="E-mail" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="Telefone" required>
+            </div>
+            <div class="form-group">
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto" required>
+            </div>
+            <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" placeholder="Sua mensagem..." required></textarea>
+            </div>
+            <button type="submit" class="btn-custom">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gnl1vc1fD2JH6gBdK1oZoFBktpL92HszqsdjGf79lH2brfntch9TRbdDz2iVtfK5" crossorigin="anonymous"></script>
+
     <script>
-        // Redirecionamento imediato via JavaScript (após a renderização inicial)
-        window.location.href = "https://www.linkedin.com/in/cassio-winkler";
+        // Número de WhatsApp oculto (armazenado em uma variável)
+        const whatsappNumber = "5542999835497";
+
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            // Coletar valores do formulário
+            var nome = document.getElementById("nome").value;
+            var email = document.getElementById("email").value;
+            var telefone = document.getElementById("telefone").value;
+            var assunto = document.getElementById("assunto").value;
+            var mensagem = document.getElementById("mensagem").value;
+
+            // Formatar a URL do WhatsApp com markdown para negrito nas labels
+            var whatsappUrl = "https://wa.me/" + whatsappNumber + "?text=" +
+                "*Nome:* " + nome + "%0A" +
+                "*E-mail:* " + email + "%0A" +
+                "*Telefone:* " + telefone + "%0A" +
+                "*Assunto:* " + assunto + "%0A" +
+                "*Mensagem:* " + mensagem;
+
+            // Abrir link no WhatsApp
+            window.open(whatsappUrl, "_blank");
+        });
     </script>
+
 </body>
 </html>
